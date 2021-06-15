@@ -16,7 +16,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "GothamBold";
+  font-family: "GothamMed";
   border: none;
   outline: none;
   box-shadow: none;
@@ -24,7 +24,7 @@
 }
 body {
   background-color: #967e60;
-  background: linear-gradient(to left bottom, #512DA8, #673AB7);
+  background: linear-gradient(to left bottom, #512da8, #673ab7);
   background-attachment: fixed;
   text-align: center;
   -webkit-user-select: none;
@@ -34,36 +34,46 @@ body {
   user-select: none;
 }
 header {
-  width: 300px;
-  margin: 20px auto;
+  width: 650px;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #00000088;
   color: #fff;
-  border-radius: 4px;
-  padding: 16px 4px;
+  letter-spacing: 5px;
+  border-radius: 22px;
+  padding: 25px 20px;
 }
 header > h1 {
   font-variant: small-caps;
   font-size: 40px;
 }
 header > h3 {
+  font-family: "GothamLight";
   margin-top: 8px;
   letter-spacing: 3px;
   font-size: 14px;
+  padding-top: 20px;
+}
+header > h4 {
+  font-family: "GothamLight";
+  margin-top: 8px;
+  color: white;
+  letter-spacing: 3px;
+  font-size: 10px;
 }
 header > a {
   margin-top: 16px;
   text-decoration: underline;
   text-underline-offset: 2px;
-  color: #fff;
+  color: rgb(204, 204, 204);
   font-variant: small-caps;
-  font-size: 24px;
+  font-size: 20px;
 }
 header > a:hover {
-  color: #13bcff;
+  color: #512DA8;
 }
 #container {
   margin: 0 20px 20px;
