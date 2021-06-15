@@ -1,17 +1,7 @@
-'use strict';
+"use strict";
 
 
-import UserInterface from './ui.js';
-import {
-    toggleElementVisibility,
-    ColumnsId,
-    ListsId,
-    Columns,
-    Priorities
-} from './utils.js';
-
-
-export default class TasksManager {
+class TasksManager {
     constructor(tasks) {
         this.todoTasks = tasks.filter(({column}) => column === Columns.Todo);
         this.inProgressTasks = tasks.filter(({column}) => column === Columns.InProgress);
@@ -27,14 +17,14 @@ export default class TasksManager {
         for (const key in Columns) {
             const columnName = Columns[key];
             const column = document.getElementById(ColumnsId[key]);
-            column.addEventListener('dragover', (event) => {
+            column.addEventListener("dragover", (event) => {
                 event.preventDefault();
             });
-            column.addEventListener('drop', (event) => {
+            column.addEventListener("drop", (event) => {
                 event.preventDefault();
-                const textOfTask = event.dataTransfer.getData('text');
-                const columnOfTask = event.dataTransfer.getData('column');
-                const priorityOfTask = event.dataTransfer.getData('priority');
+                const textOfTask = event.dataTransfer.getData("text");
+                const columnOfTask = event.dataTransfer.getData("column");
+                const priorityOfTask = event.dataTransfer.getData("priority");
                 if (columnOfTask !== columnName) {
                     this.removeTask(textOfTask, columnOfTask);
                     this.addTask(textOfTask, priorityOfTask, columnName);
@@ -42,17 +32,17 @@ export default class TasksManager {
                 }
             });
 
-            const taskForm = column.getElementsByClassName('task-form').item(0);
-            const cancelButton = taskForm.getElementsByClassName('cancel-button').item(0);
-            const textArea = taskForm.getElementsByClassName('task-description').item(0);
+            const taskForm = column.getElementsByClassName("task-form").item(0);
+            const cancelButton = taskForm.getElementsByClassName("cancel-button").item(0);
+            const textArea = taskForm.getElementsByClassName("task-description").item(0);
 
-            taskForm.addEventListener('submit', (event) => {
+            taskForm.addEventListener("submit", (event) => {
                 event.preventDefault();
                 const textOfTask = textArea.value.trim();
                 if (this.hasTaskExist(textOfTask)) {
-                    toggleElementVisibility(document.getElementById('dialog'));
+                    toggleElementVisibility(document.getElementById("dialog"));
                 }
-                else if (textOfTask !== '') {
+                else if (textOfTask !== "") {
                     this.addTask(textOfTask, Priorities.None, columnName);
                     cancelButton.click();
                     this.updateColumnsUI([columnName]);
@@ -184,7 +174,7 @@ export default class TasksManager {
             ...this.doneTasks
         ]);
 
-        localStorage.setItem('tasks', tasks);
+        localStorage.setItem("tasks", tasks);
     }
 
 
@@ -198,34 +188,34 @@ export default class TasksManager {
 
     handleEventsDispatcher(listId, column) {
         const list = document.getElementById(listId);
-        const items = list.getElementsByClassName('item');
+        const items = list.getElementsByClassName("item");
 
         for (const item of items) {
-            const priorityElement = item.getElementsByClassName('priority-selector').item(0);
-            const columnSelector = item.getElementsByClassName('column-selector').item(0);
-            const text = item.getElementsByClassName('task-body').item(0).textContent;
-            const removeIcon = item.getElementsByClassName('remove-task').item(0);
+            const priorityElement = item.getElementsByClassName("priority-selector").item(0);
+            const columnSelector = item.getElementsByClassName("column-selector").item(0);
+            const text = item.getElementsByClassName("task-body").item(0).textContent;
+            const removeIcon = item.getElementsByClassName("remove-task").item(0);
             const currentColumn = columnSelector.value;
 
-            item.addEventListener('dragstart', (event) => {
-                event.dataTransfer.setData('text', text);
-                event.dataTransfer.setData('column', column);
-                event.dataTransfer.setData('priority', priorityElement.value);
+            item.addEventListener("dragstart", (event) => {
+                event.dataTransfer.setData("text", text);
+                event.dataTransfer.setData("column", column);
+                event.dataTransfer.setData("priority", priorityElement.value);
             });
 
-            removeIcon.addEventListener('click', () => {
+            removeIcon.addEventListener("click", () => {
                 this.removeTask(text, column);
                 this.updateColumnsUI([column]);
             });
 
-            priorityElement.addEventListener('change', (event) => {
+            priorityElement.addEventListener("change", (event) => {
                 const newPriority = event.target.value;
                 this.changeTaskPriority(text, column, newPriority);
                 this.updateColumnsUI([column]);
             });
 
 
-            columnSelector.addEventListener('change', (event) => {
+            columnSelector.addEventListener("change", (event) => {
                 const newColumn = event.target.value;
                 this.removeTask(text, currentColumn);
                 this.addTask(text, priorityElement.value, newColumn);
