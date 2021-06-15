@@ -1,7 +1,7 @@
 'use strict';
 
 
-export const Columns = Object.freeze({
+const Columns = Object.freeze({
     Todo: 'TO DO',
     InProgress: 'IN PROGRESS',
     Testing: 'TESTING',
@@ -9,7 +9,7 @@ export const Columns = Object.freeze({
 });
 
 
-export const ColumnsId = Object.freeze({
+const ColumnsId = Object.freeze({
     Todo: 'todo-column',
     InProgress: 'progress-column',
     Testing: 'testing-column',
@@ -17,7 +17,7 @@ export const ColumnsId = Object.freeze({
 });
 
 
-export const ListsId = Object.freeze({
+const ListsId = Object.freeze({
     Todo: 'todo-list',
     InProgress: 'progress-list',
     Testing: 'testing-list',
@@ -25,7 +25,7 @@ export const ListsId = Object.freeze({
 });
 
 
-export const FormsId = Object.freeze({
+const FormsId = Object.freeze({
     Todo: 'todo-form',
     InProgress: 'progress-form',
     Testing: 'testing-form',
@@ -33,7 +33,7 @@ export const FormsId = Object.freeze({
 });
 
 
-export const Priorities = Object.freeze({
+const Priorities = Object.freeze({
     None: 'PRIORITY',
     High: 'HIGH',
     Middle: 'MIDDLE',
@@ -41,7 +41,7 @@ export const Priorities = Object.freeze({
 });
 
 
-export function toggleElementVisibility(element, displayMode = 'block') {
+function toggleElementVisibility(element, displayMode = 'block') {
     if (element.style.display === 'none') {
         element.style.zIndex = 'unset';
         element.style.display = displayMode;
@@ -53,7 +53,7 @@ export function toggleElementVisibility(element, displayMode = 'block') {
 }
 
 
-export function appendChilds(parent, ...childern) {
+function appendChilds(parent, ...childern) {
     for (const child of childern) {
         parent.appendChild(child);
     }

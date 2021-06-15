@@ -1,18 +1,7 @@
 'use strict';
 
 
-import {
-    Columns,
-    ColumnsId,
-    FormsId,
-    ListsId,
-    Priorities,
-    appendChilds,
-    toggleElementVisibility
-} from './utils.js';
-
-
-export default class UserInterface {
+class UserInterface {
     constructor() {
         this.page = document.getElementById('container');
     }

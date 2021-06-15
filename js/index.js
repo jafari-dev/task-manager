@@ -1,9 +1,6 @@
 'use strict';
 
 
-import TasksManager from './tasks-manager.js';
-
-
 window.addEventListener('load', handlePageLoad);
 
 function handlePageLoad() {

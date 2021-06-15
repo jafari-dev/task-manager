@@ -1,17 +1,7 @@
 'use strict';
 
 
-import UserInterface from './ui.js';
-import {
-    toggleElementVisibility,
-    ColumnsId,
-    ListsId,
-    Columns,
-    Priorities
-} from './utils.js';
-
-
-export default class TasksManager {
+class TasksManager {
     constructor(tasks) {
         this.todoTasks = tasks.filter(({column}) => column === Columns.Todo);
         this.inProgressTasks = tasks.filter(({column}) => column === Columns.InProgress);
