@@ -46,6 +46,10 @@ header {
   border-radius: 22px;
   padding: 25px 20px;
 }
+header:hover {
+    box-shadow: 0px 0px 10px #e0aaff;
+    transition: box-shadow 0.2s linear;
+}
 header > h1 {
   font-variant: small-caps;
   font-size: 40px;
@@ -73,7 +77,7 @@ header > a {
   font-size: 20px;
 }
 header > a:hover {
-  color: #512DA8;
+  color: #512da8;
 }
 #container {
   margin: 0 20px 20px;
@@ -81,8 +85,8 @@ header > a:hover {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
 }
 @media screen and (max-width: 1280px) {
   #container {
@@ -98,48 +102,53 @@ header > a:hover {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  background-color: #2a1851;
+  border-radius: 15px;
   padding: 0 8px;
+  box-shadow: #000;
+}
+.column:hover {
+  box-shadow: 0px 0px 20px #e0aaff;
+  transition: box-shadow 0.2s linear;
 }
 .column > h2 {
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.521);
   padding: 10px 0px;
   color: #fff;
   font-size: 24px;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 8px 0 16px;
 }
 .column:nth-of-type(1) h2 {
-  background-color: #5a1f75;
+  background-color: #240046;
 }
 .column:nth-of-type(2) h2 {
-  background-color: #006868;
+  background-color: #3c096c;
 }
 .column:nth-of-type(3) h2 {
-  background-color: #d47013;
+  background-color: #7b2cbf;
 }
 .column:nth-of-type(4) h2 {
-  background-color: #2a72b6;
+  background-color: #49c155;
 }
 .column > ul {
   height: 100%;
   list-style-type: none;
-  padding: 0px;
+  padding: 5px;
 }
 .column > button {
   text-align: center;
   margin-bottom: 8px;
-  background-color: #ffffff66;
-  border-radius: 4px;
+  background-color: #e0aaff93;
+  border-radius: 10px;
   cursor: pointer;
   padding: 48px 0;
   font-size: 18px;
-  transition: background-color 0.2s linear;
+  transition: background-color 0.3s linear;
 }
 .column > button:hover {
-  background-color: #fff;
-  transition: background-color 0.2s linear;
+  background-color: #5a189a;
+  transition: background-color 0.3s linear;
 }
 .column > button > img {
   display: block;
